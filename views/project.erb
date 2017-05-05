@@ -5,7 +5,7 @@
 
   <ul>
     <% @project.volunteers.each do |volunteer| %>
-      <li><%= volunteer.nombre %> </li>
+      <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.nombre %> </li>
     <% end %>
   </ul>
 
@@ -14,12 +14,6 @@
       there are no volunteers on this project!
     </p>
   <% end %>
-
-<!-- <div class="container">
-  <a href="/">Home</a>
-  <a href="/projects">View All Lists</a>
-  <a href="/projects/new">Add New List</a>
-</div> -->
 
 <p><a href="/projects/<%= @project.id() %>/edit">Edit <%= @project.name() %> project</a></p>
 <p><a href="/">Return to Main Page</a></p>
