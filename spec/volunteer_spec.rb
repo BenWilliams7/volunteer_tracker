@@ -34,8 +34,8 @@ describe(Volunteer) do
 
    describe '#==' do
       it 'is the same volunteer if it has the same nombre and project ID' do
-        volunteer1 = Task.new({:nombre => 'learn SQL', :project_id => 1})
-        volunteer2 = Task.new({:nombre => 'learn SQL', :project_id => 1})
+        volunteer1 = Volunteer.new({:nombre => 'learn SQL', :project_id => 1})
+        volunteer2 = Volunteer.new({:nombre => 'learn SQL', :project_id => 1})
         expect(volunteer1).to(eq(volunteer2))
       end
     end
