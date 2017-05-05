@@ -12,31 +12,31 @@ describe(Volunteer) do
 
    describe("#save") do
      it("adds a volunteer to the array of saved volunteers") do
-       test_volunteer = Volunteer.new({:name => "George", :project_id => 1})
+       test_volunteer = Volunteer.new({:nombre => "George", :project_id => 1})
        test_volunteer.save()
        expect(Volunteer.all()).to(eq([test_volunteer]))
      end
    end
 
-   describe("#name") do
-     it("lets you give it a name") do
-       test_volunteer = Volunteer.new({:name => "George", :project_id => 1})
-       expect(test_volunteer.name()).to(eq("George"))
+   describe("#nombre") do
+     it("lets you give it a nombre") do
+       test_volunteer = Volunteer.new({:nombre => "George", :project_id => 1})
+       expect(test_volunteer.nombre()).to(eq("George"))
      end
    end
 
    describe("project_id") do
      it("lets you read the project ID out") do
-       test_volunteer = Volunteer.new({:name => "George", :project_id => 1})
+       test_volunteer = Volunteer.new({:nombre => "George", :project_id => 1})
        expect(test_volunteer.project_id).to(eq(1))
      end
    end
 
-  describe("#==") do
-    it("is the same volunteer if it has the same name") do
-      name1 = Volunteer.new({:name => "George"})
-      name2 = Volunteer.new({:name => "George"})
-      expect(name1).to(eq(name2))
+   describe '#==' do
+      it 'is the same volunteer if it has the same nombre and project ID' do
+        volunteer1 = Task.new({:nombre => 'learn SQL', :project_id => 1})
+        volunteer2 = Task.new({:nombre => 'learn SQL', :project_id => 1})
+        expect(volunteer1).to(eq(volunteer2))
+      end
     end
-  end
 end

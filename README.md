@@ -4,7 +4,7 @@ In the psql terminal, run the following commands to build a database: CREATE DAT
 \c volunteer_tracker
 CREATE TABLE projects (id serial PRIMARY KEY, name varchar);
 CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;
-CREATE TABLE volunteer (id serial PRIMARY KEY, name varchar)
+CREATE TABLE volunteer (id serial PRIMARY KEY, nombre varchar)
 
 DROP DATABASE volunteer_tracker_test;
 CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;

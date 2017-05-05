@@ -1,0 +1,25 @@
+<h1><%= @project.name %></h1>
+
+<% if @project.volunteers.any? %>
+  <h3>Here are all the volunteers in this project:</h3>
+
+  <ul>
+    <% @project.volunteers.each do |volunteer| %>
+      <li><%= volunteer.nombre %> </li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>
+      there are no volunteers on this project!
+    </p>
+  <% end %>
+
+<!-- <div class="container">
+  <a href="/">Home</a>
+  <a href="/projects">View All Lists</a>
+  <a href="/projects/new">Add New List</a>
+</div> -->
+
+<p><a href="/projects/<%= @project.id() %>/edit">Edit <%= @project.name() %> project</a></p>
+<p><a href="/">Return to Main Page</a></p>
