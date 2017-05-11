@@ -1,6 +1,3 @@
-require 'rspec'
-require 'pg'
-require 'project'
 require 'spec_helper'
 
 describe(Project) do
@@ -55,14 +52,14 @@ describe(Project) do
     it 'returns an array of volunteers for that project' do
       test_project = Project.new({:name => "Pluto for Planethood", :id => nil})
       test_project.save()
-      test_volunteer = Volunteer.new({:nombre => "Donatello", :project_id => test_project.id()})
+      test_volunteer = Volunteer.new({:nombre => "Donatello", :project_id => test_project.id(), :id => nil})
       test_volunteer.save()
-      test_volunteer2 = Volunteer.new({:nombre => "Scar", :project_id => test_project.id()})
+      test_volunteer2 = Volunteer.new({:nombre => "Scar", :project_id => test_project.id(), :id => nil})
       test_volunteer2.save()
       expect(test_project.volunteers).to(eq([test_volunteer, test_volunteer2]))
     end
   end
-  
+
   describe("#update") do
     it("lets you update projects in the database") do
       project = Project.new({:name => "Pluto for Planethood", :id => nil})
@@ -85,9 +82,9 @@ describe(Project) do
     it("deletes a project's volunteers from the database") do
       project = Project.new({:name => "Pluto for Planethood", :id => nil})
       project.save()
-      volunteer = Volunteer.new({:nombre => "Michelangelo", :project_id => project.id()})
+      volunteer = Volunteer.new({:nombre => "Michelangelo", :project_id => project.id(), :id => nil})
       volunteer.save()
-      volunteer2 = Volunteer.new({:nombre => "Splinter", :project_id => project.id()})
+      volunteer2 = Volunteer.new({:nombre => "Splinter", :project_id => project.id(), :id => nil})
       volunteer2.save()
       project.delete()
       expect(Volunteer.all()).to(eq([]))

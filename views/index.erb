@@ -6,26 +6,26 @@
   <label for="name">Assign a name to a project:</label>
   <input id="name" name="name" type="text">
 
-  <button type="submit">Add project</button>
+  <button type="submit">Create project</button>
 </form>
 
 <p> Add volunteers to any project:</p>
 
 <form action="/volunteers" method="post">
   <label for="project_id">Select a Project</label>
-<select id='project_id' name='project_id' type='text'>
-  <% @projects.each() do |project| %>
-    <option value="<%= project.id()%>"> <%= project.name() %> </option>
-  <% end %>
-</select>
-<br>
+  <select id='project_id' name='project_id' type='text'>
+    <% @projects.each() do |project| %>
+      <option value="<%= project.id()%>"> <%= project.name() %> </option>
+    <% end %>
+  </select>
+  <br>
   <label for="nombre">Name of the volunteer:</label>
   <input id="nombre" name="nombre" type="text">
 
   <button type="submit">Add volunteer</button>
 </form>
 
-
+<h1>These are your projects:</h1>
 <% if @projects.any?() %>
 <p>Click on a project to see its volunteers:</p>
 
@@ -37,3 +37,20 @@
 <% else %>
 <p>There are no projects yet!</p>
 <% end %>
+
+
+
+<% if @volunteers.any? %>
+  <h1>Here are all of your volunteers:</h1>
+
+  <ul>
+    <% @volunteers.each do |volunteer| %>
+      <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.nombre %> </li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>
+      There are no volunteers on this project!
+    </p>
+  <% end %>

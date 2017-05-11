@@ -26,7 +26,7 @@ class Volunteer
   end
 
   define_method(:==) do |another_volunteer|
-    self.nombre.==(another_volunteer.nombre).&(self.id.==(another_volunteer.id))
+    self.nombre.==(another_volunteer.nombre).&(self.project_id.==(another_volunteer.project_id))
   end
 
 

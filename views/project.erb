@@ -5,13 +5,13 @@
 
   <ul>
     <% @project.volunteers.each do |volunteer| %>
-      <li><a href="/volund/<%= volunteer.id() %>"><%= volunteer.nombre %> </li>
+      <li><%= volunteer.nombre %> </li>
     <% end %>
   </ul>
 
   <% else %>
     <p>
-      there are no volunteers on this project!
+      There are no volunteers on this project!
     </p>
   <% end %>
 
