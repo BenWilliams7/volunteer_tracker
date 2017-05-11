@@ -14,21 +14,20 @@ This webpage allows users to create, edit and delete projects. The users can the
 1. Open a new terminal and enter: postgres
 2. Open another new terminal and enter: psql
 3. In the psql terminal, run the following commands to build a database (the "=#" indicates a new command and should not be included in what is typed):
+
 =# CREATE DATABASE volunteer_tracker;
+
 =# \c volunteer_tracker
 
 =# CREATE TABLE projects (id serial PRIMARY KEY, name varchar);
+
 =# CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;
 
-=# CREATE TABLE volunteer (id serial PRIMARY KEY, nombre varchar)
-=# DROP DATABASE volunteer_tracker_test;
-=# CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;
+=# CREATE TABLE volunteers (id serial PRIMARY KEY, nombre varchar, project_id int)
 
-=# ALTER TABLE volunteers ADD project_id int;
-=# DROP DATABASE volunteer_tracker_test;
-=# CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;
 
-* In yet another terminal, run: ruby app.rb. In a browser, go to the indicated localhost (usually 4567) to use the project. 
+* In yet another terminal, run: ruby app.rb. In a browser, go to the indicated localhost (usually 4567) to use the project.
+
 ## Known Bugs
 
 No known bugs. If you find any other issues, please contact me at benjarwilliams at gmail dot com.
